@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.0/tablesort.min.js"></script>
+    <title>Listagem de Itens</title>
+</head>
+<body>
+
+    <div class="item-list-container">
+        <h2>Listagem de Itens</h2>
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>Tipo
+                        <select class="filter-input" data-filter-index="0">
+                            <option value="">Todos</option>
+                            <option value="Entrada">Entrada</option>
+                            <option value="Saída">Saída</option>
+                        </select>
+                    </th>
+                    <th>Valor <input class="filter-input" data-filter-index="1" type="text"></th>
+                    <th>Data e Hora <input class="filter-input" data-filter-index="2" type="text"></th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas da tabela -->
+            </tbody>
+        </table>
+        <table id="sumRow">
+            <td colspan="3">Somatória</td>
+            <td id="sumValue"></td>
+        </table>
+    </div>
+
+    <div class="add-item-container">
+        <button onclick="showAddItemPopup()">Adicionar Item</button>
+    </div>
+
+    <div class="add-item-popup" id="addItemPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closeAddItemPopup()">&times;</span>
+            <h2>Adicionar Item</h2>
+            <label for="popupType">Tipo:</label>
+            <select id="popupType">
+                <option value="Entrada">Entrada</option>
+                <option value="Saída">Saída</option>
+            </select>
+            <label for="popupValue">Valor:</label>
+            <input type="text" id="popupValue" placeholder="R$ 0,00" onkeydown="formatCurrency(this)" required>
+            <div class="botaoAdicionar"> <button onclick="adicionarItemTabela()">Adicionar</button></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
